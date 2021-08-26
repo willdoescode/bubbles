@@ -21,8 +21,13 @@ target_link_libraries(bubbles_test gtest_main)
 include(GoogleTest)
 gtest_discover_tests(bubbles_test)
 
+find_package(Boost 1.76.0 COMPONENTS program_options REQUIRED)
+
+include_directories(${Boost_INCLUDE_DIR})
 include_directories(include/)
+
 aux_source_directory(src/ SRC)
 add_executable(bubbles ${SRC})
 
 target_include_directories(bubbles PUBLIC include/)
+target_include_directories(bubbles PUBLIC ${Boost_LIBRARIES})

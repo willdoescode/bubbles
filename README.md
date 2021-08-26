@@ -1,4 +1,6 @@
-# Bubbles: simple c++ project template with gtest included
+# Bubbles: simple c++ project template with gtest and boost included
+
+## Make sure to install boost c++ for your respective os
 
 ### Building && Testing
 
