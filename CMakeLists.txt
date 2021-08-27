@@ -15,6 +15,7 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
+include_directories(src/)
 add_executable(bubbles_test test/main.cpp)
 target_link_libraries(bubbles_test gtest_main)
 
@@ -31,3 +32,4 @@ add_executable(bubbles ${SRC})
 
 target_include_directories(bubbles PUBLIC include/)
 target_include_directories(bubbles PUBLIC ${Boost_LIBRARIES})
+
