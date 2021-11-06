@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-project(bubbles C CXX)
+project({{__NAME__}} C CXX)
 set(CXX_STANDARD 20)
 set(CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "-std=c++20")
@@ -16,11 +16,11 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 include_directories(src/)
-add_executable(bubbles_test test/main.cpp)
-target_link_libraries(bubbles_test gtest_main)
+add_executable({{__NAME__}}_test test/main.cpp)
+target_link_libraries({{__NAME__}}_test gtest_main)
 
 include(GoogleTest)
-gtest_discover_tests(bubbles_test)
+gtest_discover_tests({{__NAME__}}_test)
 
 find_package(Boost 1.76.0 COMPONENTS program_options REQUIRED)
 
@@ -28,8 +28,8 @@ include_directories(${Boost_INCLUDE_DIR})
 include_directories(include/)
 
 aux_source_directory(src/ SRC)
-add_executable(bubbles ${SRC})
+add_executable({{__NAME__}} ${SRC})
 
-target_include_directories(bubbles PUBLIC include/)
-target_include_directories(bubbles PUBLIC ${Boost_LIBRARIES})
+target_include_directories({{__NAME__}} PUBLIC include/)
+target_include_directories({{__NAME__}} PUBLIC ${Boost_LIBRARIES})
 
